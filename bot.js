@@ -7,9 +7,9 @@ var mcCommand = 'mcstat'; // Command for triggering
 var mcIP = '158.69.137.37'; // Your MC server IP or hostname address
 var mcPort = 25565; // Your MC server port (25565 is the default)
 
-// IMPORTANT: You need to run "npm install request" (without quotes) in your terminal before executing this script
+
 client.on('message', message => {
-    if (message.content === mcCommand) {
+    if (message.content == 'ping') {
       message.reply('pong')
     }
 
