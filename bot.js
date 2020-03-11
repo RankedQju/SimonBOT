@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
+client.login(process.env.BOT_TOKEN);
 
 var request = require('request');
 var mcCommand = 'mcstat'; // Command for triggering
@@ -10,8 +10,8 @@ var mcPort = 25565; // Your MC server port (25565 is the default)
 
 client.on('message', message => {
     if (message.content == 'ping') {
-      message.reply('pong')
-    }
+      message.reply('pong');
+    };
 
 client.on('message', message => {
     if (message.content === mcCommand) {
@@ -35,9 +35,3 @@ client.on('message', message => {
         });
     }
 });
-
-
-
-// THIS  MUST  BE  THIS  WAY
-
-client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
