@@ -11,7 +11,7 @@ var mcPort = 25565; // Your MC server port (25565 is the default)
 client.on('message', message => {
     if (message.content == 'ping') {
       message.reply('pong');
-    };
+    });
 
 client.on('message', message => {
     if (message.content === mcCommand) {
