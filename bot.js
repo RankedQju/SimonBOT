@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 client.login(process.env.BOT_TOKEN);
 
-var request = require('request');
+var mcping = require('mc-ping');
 var mcCommand = 'mcstat'; // Command for triggering
 var mcIP = '158.69.137.37'; // Your MC server IP or hostname address
 var mcPort = 25565; // Your MC server port (25565 is the default)
@@ -20,8 +20,7 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content === mcCommand) {
-        var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
-        request(url, function(err, response, body) {
+        mcping(mcIP, mcPort, function(err, res) {
             if(err) {
                 console.log(err);
                 return message.reply('Error getting Minecraft server status...');
@@ -37,6 +36,6 @@ client.on('message', message => {
                 }
             }
             message.reply(status);
-        });
+        }, 3000);
     }
 });
