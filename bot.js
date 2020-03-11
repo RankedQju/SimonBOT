@@ -31,6 +31,7 @@ client.on('message', message => {
             if(body.online) {
                 status = '**Minecraft** server is **online**  -  ';
                 if(body.players.now) {
+                    bot.user.setUsername("SimonBOT - " + body.players.now + "** people are playing!");
                     status += '**' + body.players.now + '** people are playing!';
                 } else {
                     status += '*Nobody is playing!*';
